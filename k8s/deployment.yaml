@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kxnwork-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kxnwork-app
+  template:
+    metadata:
+      labels:
+        app: kxnwork-app
+    spec:
+      containers:
+        - name: kxnwork-app
+          image: us-east1-docker.pkg.dev/kxnwork/kxnwork-app/app:latest
+          ports:
+            - containerPort: 80
